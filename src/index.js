@@ -5,15 +5,27 @@ function formatDate(date){
     return date.toLocaleDateString();
 }
 
+function Avatar(props){
+    return (
+        <img src={props.user.avatarUrl} alt={props.user.name} />
+    )
+}
+
+function UserInfo(props){
+    return (
+        <div className="UserInfo">
+            <Avatar user={props.user} />
+            <div>{props.user.name}</div>
+        </div>
+    )
+}
+
 function Comment(props){
     return (
-        <div className="comment">
-            <div className="user-info">
-                <img className="avatar" src={props.author.avatarUrl} alt={props.author.name} />
-                <div className="user-name">{props.author.name}</div>
-            </div>
-            <div className="comment-text">{props.text}</div>
-            <div className="comment-date">{formatDate(props.date)}</div>
+        <div className="Comment">
+            <UserInfo user={props.author} />
+            <div className="Comment-text">{props.text}</div>
+            <div className="Comment-date">{formatDate(props.date)}</div>
         </div>
     )
 }
@@ -28,6 +40,4 @@ const comment = {
     },
 };
 
-ReactDOM.render(
-    <Comment date={comment.date} text={comment.text} author={comment.author} />
-    , document.getElementById('root'));
+ReactDOM.render(<Comment date={comment.date} text={comment.text} author={comment.author} />, document.getElementById('root'));
