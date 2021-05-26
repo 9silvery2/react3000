@@ -1,0 +1,16 @@
+// main page
+#mainCont {
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main__cont {
+        color: #fff;
+        font-size: 10vw;
+        line-height: 0.85;
+        font-family: 'Saol Display Regular';
+        text-transform: uppercase;
+    }
+}
